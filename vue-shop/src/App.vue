@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    111<el-button>111</el-button>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -11,7 +11,6 @@ export default {
   components: {
   },
   created () {
-    console.log(this)
   }
 }
 </script>
