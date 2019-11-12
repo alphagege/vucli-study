@@ -8,6 +8,8 @@ import './plugins/normalize'
 
 import '@/styles/index.scss' // 全局样式
 
+import './icons'
+
 Vue.config.productionTip = false
 
 new Vue({
