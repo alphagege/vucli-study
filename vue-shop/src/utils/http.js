@@ -3,13 +3,13 @@
  * @Description axios封装，请求拦截、相应拦截、错误统一处理
  * @Date: 2019-11-12 09:52:17
  * @Last Modified by: dongwenjie
- * @Last Modified time: 2019-11-12 10:19:05
+ * @Last Modified time: 2019-11-13 17:19:43
  */
 
 import axios from 'axios'
 import router from '@/router'
 import { Message } from 'element-ui'
-// import store from '../store/index'
+import store from '../store/index'
 const $axios = axios.create({
   // 请求超时时间
   baseURL: '/api/private/v1/',
@@ -27,8 +27,8 @@ $axios.interceptors.request.use(
     config.headers['X-Requested-With'] = 'XMLHttpRequest'
     // 每次发送请求之前判断是否存在token，如果存在，则统一在http请求的header都加上token，不用每次请求都手动添加了
     // 即使本地存在token，也有可能token是过期的，所以在响应拦截器中要对返回状态进行判断
-    // const token = store.state.token
-    // token && (config.headers.Authorization = token)
+    const token = store.state.token
+    token && (config.headers.Authorization = token)
     return config
   },
   error => {
@@ -81,7 +81,7 @@ $axios.interceptors.response.use(
           break
           // 其他错误，直接抛出错误提示
         default:
-          Message.error(error.response.data.message)
+          Message.error(error.response.data)
       }
       return Promise.reject(error.response)
     }

@@ -3,7 +3,7 @@
  * @Description: 登录页面
  * @Date: 2019-11-12 09:48:48
  * @Last Modified by: dongwenjie
- * @Last Modified time: 2019-11-12 11:30:23
+ * @Last Modified time: 2019-11-13 16:54:09
  */
 
 <template>
@@ -116,14 +116,19 @@ export default {
     async handleLogin () {
       this.$refs['loginForm'].validate(async (valid) => {
         if (valid) {
-          let { data } = await loginApi.createLogin({
+          this.loading = true
+          await loginApi.createLogin({
             data: this.loginForm
+          }).then(({ data }) => {
+            if (data.meta.status === 200) {
+              this.$message.success(data.meta.msg)
+            } else {
+              this.$message.error(data.meta.msg)
+            }
+            this.loading = false
+          }).catch((error) => {
+            this.loading = false
           })
-          if (data.meta.status === 200) {
-            this.$message.success(data.meta.msg)
-          } else {
-            this.$message.error(data.meta.msg)
-          }
         }
       })
     }

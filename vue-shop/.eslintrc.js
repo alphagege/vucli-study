@@ -25,7 +25,8 @@ module.exports = {
       {
         'x-invalid-end-tag': false
       }
-    ]
+    ],
+    'handle-callback-err':'off'
   },
   parserOptions: {
     parser: 'babel-eslint'
