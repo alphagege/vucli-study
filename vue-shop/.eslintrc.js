@@ -10,7 +10,6 @@ module.exports = {
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-console': 'off',
     'no-unused-vars': [
       'warn',
       {
@@ -19,14 +18,14 @@ module.exports = {
         'ignoreRestSiblings': false
       }
     ],
-    'no-mixed-operators': [0], //Unexpected mix of '&&' and '||' (no-mixed-operators)
+    'no-mixed-operators': [0], // Unexpected mix of '&&' and '||' (no-mixed-operators)
     'vue/no-parsing-error': [
       2,
       {
         'x-invalid-end-tag': false
       }
     ],
-    'handle-callback-err':'off'
+    'handle-callback-err':'off' // Expected error to be handled (handle-callback-err)
   },
   parserOptions: {
     parser: 'babel-eslint'

@@ -3,7 +3,7 @@
  * @Description: 登录页面
  * @Date: 2019-11-12 09:48:48
  * @Last Modified by: dongwenjie
- * @Last Modified time: 2019-11-13 16:54:09
+ * @Last Modified time: 2019-11-16 11:57:51
  */
 
 <template>
@@ -61,6 +61,7 @@
 
 <script>
 import { loginApi } from '@/api' // 引入登陆相关的api
+import { setToken } from '@/utils/auth.js'
 console.log(loginApi)
 export default {
   name: 'login',
@@ -122,6 +123,8 @@ export default {
           }).then(({ data }) => {
             if (data.meta.status === 200) {
               this.$message.success(data.meta.msg)
+              setToken(data.data.token) // 存储token
+              this.$router.push({ name: 'home' })
             } else {
               this.$message.error(data.meta.msg)
             }
