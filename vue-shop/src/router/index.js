@@ -3,10 +3,13 @@
  * @Description 路由文件
  * @Date: 2019-11-12 10:23:26
  * @Last Modified by: dongwenjie
- * @Last Modified time: 2019-11-14 09:40:20
+ * @Last Modified time: 2019-11-17 10:29:46
  */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+/* Layout */
+import Layout from '@/layout/index.vue'
+
 import { getToken } from '@/utils/auth.js'
 
 Vue.use(VueRouter)
@@ -23,9 +26,21 @@ const routes = [
   },
   {
     name: 'home',
-    path: '/home',
-    component: () => import(/* webpackChunkName: 'home' */ '../views/Home')
+    path: '/',
+    component: Layout,
+    children: [
+      {
+        path: 'dashboard',
+        component: () => import('@/views/dashboard/index'),
+        name: 'Dashboard'
+      }
+    ]
   }
+  // {
+  //   name: 'home',
+  //   path: '/home',
+  //   component: () => import(/* webpackChunkName: 'home' */ '../views/Home')
+  // }
 ]
 
 const router = new VueRouter({

@@ -3,7 +3,7 @@
  * @Description: 登录页面
  * @Date: 2019-11-12 09:48:48
  * @Last Modified by: dongwenjie
- * @Last Modified time: 2019-11-16 11:57:51
+ * @Last Modified time: 2019-11-17 10:28:57
  */
 
 <template>
@@ -124,7 +124,7 @@ export default {
             if (data.meta.status === 200) {
               this.$message.success(data.meta.msg)
               setToken(data.data.token) // 存储token
-              this.$router.push({ name: 'home' })
+              this.$router.push({ name: 'Dashboard' })
             } else {
               this.$message.error(data.meta.msg)
             }
