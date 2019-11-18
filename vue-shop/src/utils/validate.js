@@ -3,7 +3,7 @@
  * @Description 验证规则统一封装文件
  * @Date: 2019-11-12 09:39:55
  * @Last Modified by: dongwenjie
- * @Last Modified time: 2019-11-13 17:12:08
+ * @Last Modified time: 2019-11-16 11:58:16
  */
 
 /**

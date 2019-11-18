@@ -3,7 +3,7 @@
  * @Description axios封装，请求拦截、相应拦截、错误统一处理
  * @Date: 2019-11-12 09:52:17
  * @Last Modified by: dongwenjie
- * @Last Modified time: 2019-11-13 17:19:43
+ * @Last Modified time: 2019-11-13 17:24:03
  */
 
 import axios from 'axios'
